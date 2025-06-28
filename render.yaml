@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: level20-flask-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: DISCORD_TOKEN
+        fromService:
+          name: your-discord-service-name  # optional if you want to link services
+      - key: PAYPAL_VERIFY_TOKEN
+        # You can set these later in Render dashboard instead
